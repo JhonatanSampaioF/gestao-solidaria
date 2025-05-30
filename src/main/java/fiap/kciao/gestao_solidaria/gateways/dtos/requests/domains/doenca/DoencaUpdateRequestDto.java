@@ -1,0 +1,9 @@
+package fiap.kciao.gestao_solidaria.gateways.dtos.requests.domains.doenca;
+
+import lombok.Data;
+
+@Data
+public class DoencaUpdateRequestDto {
+    private String nome;
+    private String gravidade;
+}
