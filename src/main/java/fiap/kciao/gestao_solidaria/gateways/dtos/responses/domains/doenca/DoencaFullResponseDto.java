@@ -13,5 +13,5 @@ public class DoencaFullResponseDto {
     private Integer id;
     private String nome;
     private String gravidade;
-    private List<String> abrigadosId;
+    private List<Integer> abrigadosId;
 }

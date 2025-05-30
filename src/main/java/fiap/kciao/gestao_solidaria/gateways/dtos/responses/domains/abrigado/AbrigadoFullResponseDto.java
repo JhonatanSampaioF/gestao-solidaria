@@ -18,6 +18,6 @@ public class AbrigadoFullResponseDto {
     private String cpf;
     private Boolean voluntario;
     private String ferimento;
-    private String localId;
-    private List<String> doencasId;
+    private Integer localId;
+    private List<Integer> doencasId;
 }

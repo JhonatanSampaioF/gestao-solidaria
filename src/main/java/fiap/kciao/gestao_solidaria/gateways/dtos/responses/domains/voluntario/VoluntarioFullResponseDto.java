@@ -13,6 +13,6 @@ public class VoluntarioFullResponseDto {
     private Integer id;
     private String alocacao;
     private String capacidade_motora;
-    private String abrigadoId;
-    private List<String> habilidadesId;
+    private Integer abrigadoId;
+    private List<Integer> habilidadesId;
 }

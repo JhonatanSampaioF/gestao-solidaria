@@ -9,6 +9,6 @@ import lombok.Data;
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class UsuarioFullResponseDto {
     private Integer id;
-    private String name;
+    private String nome;
     private String email;
 }
