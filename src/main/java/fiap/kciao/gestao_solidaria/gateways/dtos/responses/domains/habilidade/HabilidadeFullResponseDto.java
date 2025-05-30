@@ -13,5 +13,5 @@ public class HabilidadeFullResponseDto {
     private Integer id;
     private String nome;
     private Integer prioridade;
-    private List<String> voluntariosId;
+    private List<Integer> voluntariosId;
 }
