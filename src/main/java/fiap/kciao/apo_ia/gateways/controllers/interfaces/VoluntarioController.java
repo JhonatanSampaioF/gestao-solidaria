@@ -10,9 +10,9 @@ import java.util.List;
 
 public interface VoluntarioController {
     ResponseEntity<VoluntarioFullResponseDto> create(VoluntarioCreateRequestDto voluntarioCreateRequestDto);
-    ResponseEntity<VoluntarioFullResponseDto> update(Integer id, VoluntarioUpdateRequestDto voluntarioUpdateRequestDto);
-    ResponseEntity<VoluntarioFullResponseDto> delete(Integer id);
-    ResponseEntity<VoluntarioFullResponseDto> findById(Integer id);
+    ResponseEntity<VoluntarioFullResponseDto> update(String id, VoluntarioUpdateRequestDto voluntarioUpdateRequestDto);
+    ResponseEntity<VoluntarioFullResponseDto> delete(String id);
+    ResponseEntity<VoluntarioFullResponseDto> findById(String id);
     ResponseEntity<List<VoluntarioFullResponseDto>> findAll();
-    ResponseEntity<VoluntarioFullResponseDto> manageHabilidade(Integer voluntarioId, Integer habilidadeId, ManageAction action);
+    ResponseEntity<VoluntarioFullResponseDto> manageHabilidade(String voluntarioId, String habilidadeId, ManageAction action);
 }

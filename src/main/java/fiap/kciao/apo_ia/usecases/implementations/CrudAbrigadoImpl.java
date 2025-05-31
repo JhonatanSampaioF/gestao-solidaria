@@ -31,13 +31,13 @@ public class CrudAbrigadoImpl implements CrudAbrigado {
 
         Abrigado abrigado = toEntityCreate(abrigadoCreateRequestDto);
 
-        abrigado.setLocal(local);
+        abrigado.setLocalId(local.getId());
 
         return toFullResponseDto(abrigadoQueryService.save(abrigado));
     }
 
     @Override
-    public AbrigadoFullResponseDto update(Integer id, AbrigadoUpdateRequestDto abrigadoUpdateRequestDto) {
+    public AbrigadoFullResponseDto update(String id, AbrigadoUpdateRequestDto abrigadoUpdateRequestDto) {
         Abrigado abrigado = abrigadoQueryService.findByIdOrThrow(id);
 
         abrigado.setNome(abrigadoUpdateRequestDto.getNome());
@@ -52,7 +52,7 @@ public class CrudAbrigadoImpl implements CrudAbrigado {
     }
 
     @Override
-    public AbrigadoFullResponseDto findById(Integer id) {
+    public AbrigadoFullResponseDto findById(String id) {
         return toFullResponseDto(abrigadoQueryService.findByIdOrThrow(id));
     }
 
@@ -62,19 +62,19 @@ public class CrudAbrigadoImpl implements CrudAbrigado {
     }
 
     @Override
-    public void delete(Integer id) {
+    public void delete(String id) {
         abrigadoQueryService.deleteById(id);
     }
 
     @Override
-    public AbrigadoFullResponseDto manageDoenca(Integer doencaId, Integer abrigadoId, ManageAction action) {
+    public AbrigadoFullResponseDto manageDoenca(String doencaId, String abrigadoId, ManageAction action) {
         Abrigado abrigado = abrigadoQueryService.findByIdOrThrow(abrigadoId);
 
         Doenca doenca = doencaQueryService.findByIdOrThrow(doencaId);
 
         switch (action) {
-            case ADD -> abrigado.getDoencas().add(doenca);
-            case REMOVE -> abrigado.getDoencas().remove(doenca);
+            case ADD -> abrigado.getDoencaIds().add(doenca.getId());
+            case REMOVE -> abrigado.getDoencaIds().remove(doenca.getId());
         }
 
         return toFullResponseDto(abrigadoQueryService.save(abrigado));

@@ -10,7 +10,7 @@ import java.util.List;
 @Builder
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class AbrigadoFullResponseDto {
-    private Integer id;
+    private String id;
     private String nome;
     private Integer idade;
     private Double altura;
@@ -18,6 +18,6 @@ public class AbrigadoFullResponseDto {
     private String cpf;
     private Boolean voluntario;
     private String ferimento;
-    private Integer localId;
-    private List<Integer> doencasId;
+    private String localId;
+    private List<String> doencaIds;
 }

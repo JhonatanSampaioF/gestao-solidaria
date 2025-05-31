@@ -4,7 +4,9 @@ import fiap.kciao.apo_ia.domains.Local;
 import fiap.kciao.apo_ia.gateways.repositories.LocalRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -18,16 +20,16 @@ public class LocalQueryService {
         return localRepository.save(local);
     }
 
-    public Local findByIdOrThrow(Integer id) {
+    public Local findByIdOrThrow(String id) {
         return localRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Local not found"));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Local não encontrado"));
     }
 
     public List<Local> findAll() {
         return localRepository.findAll();
     }
 
-    public void deleteById(Integer id) {
+    public void deleteById(String id) {
         localRepository.deleteById(id);
     }
 }

@@ -4,7 +4,9 @@ import fiap.kciao.apo_ia.domains.Voluntario;
 import fiap.kciao.apo_ia.gateways.repositories.VoluntarioRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -18,16 +20,16 @@ public class VoluntarioQueryService {
         return voluntarioRepository.save(voluntario);
     }
 
-    public Voluntario findByIdOrThrow(Integer id) {
+    public Voluntario findByIdOrThrow(String id) {
         return voluntarioRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Voluntario not found"));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Voluntário não encontrado"));
     }
 
     public List<Voluntario> findAll() {
         return voluntarioRepository.findAll();
     }
 
-    public void deleteById(Integer id) {
+    public void deleteById(String id) {
         voluntarioRepository.deleteById(id);
     }
 }

@@ -21,7 +21,6 @@ public class DoencaMapper {
                 .id(doenca.getId())
                 .nome(doenca.getNome())
                 .gravidade(doenca.getGravidade())
-                .abrigadosId(doenca.getAbrigados().stream().map(Abrigado::getId).toList())
                 .build();
     }
 

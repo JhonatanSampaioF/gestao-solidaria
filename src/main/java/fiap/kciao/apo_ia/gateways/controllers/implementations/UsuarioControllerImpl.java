@@ -34,7 +34,7 @@ public class UsuarioControllerImpl implements UsuarioController {
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Edita um usuário")
     @Override
-    public ResponseEntity<UsuarioFullResponseDto> update(@PathVariable Integer id, @RequestBody @Valid UsuarioUpdateRequestDto usuarioUpdateRequestDto) {
+    public ResponseEntity<UsuarioFullResponseDto> update(@PathVariable String id, @RequestBody @Valid UsuarioUpdateRequestDto usuarioUpdateRequestDto) {
         return ResponseEntity.ok(crudUsuario.update(id, usuarioUpdateRequestDto));
     }
 
@@ -42,7 +42,7 @@ public class UsuarioControllerImpl implements UsuarioController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @Operation(summary = "Deleta um usuário")
     @Override
-    public ResponseEntity<UsuarioFullResponseDto> delete(@PathVariable Integer id) {
+    public ResponseEntity<UsuarioFullResponseDto> delete(@PathVariable String id) {
         crudUsuario.delete(id);
         return ResponseEntity.noContent().build();
     }
@@ -51,7 +51,7 @@ public class UsuarioControllerImpl implements UsuarioController {
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Busca um usuário")
     @Override
-    public ResponseEntity<UsuarioFullResponseDto> findById(@PathVariable Integer id) {
+    public ResponseEntity<UsuarioFullResponseDto> findById(@PathVariable String id) {
         return ResponseEntity.ok(crudUsuario.findById(id));
     }
 

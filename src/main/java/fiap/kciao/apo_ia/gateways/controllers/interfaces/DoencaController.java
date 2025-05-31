@@ -9,8 +9,8 @@ import java.util.List;
 
 public interface DoencaController {
     ResponseEntity<DoencaFullResponseDto> create(DoencaCreateRequestDto doencaCreateRequestDto);
-    ResponseEntity<DoencaFullResponseDto> update(Integer id, DoencaUpdateRequestDto doencaUpdateRequestDto);
-    ResponseEntity<DoencaFullResponseDto> delete(Integer id);
-    ResponseEntity<DoencaFullResponseDto> findById(Integer id);
+    ResponseEntity<DoencaFullResponseDto> update(String id, DoencaUpdateRequestDto doencaUpdateRequestDto);
+    ResponseEntity<DoencaFullResponseDto> delete(String id);
+    ResponseEntity<DoencaFullResponseDto> findById(String id);
     ResponseEntity<List<DoencaFullResponseDto>> findAll();
 }

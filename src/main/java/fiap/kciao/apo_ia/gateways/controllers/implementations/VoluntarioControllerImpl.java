@@ -8,6 +8,7 @@ import fiap.kciao.apo_ia.usecases.enums.ManageAction;
 import fiap.kciao.apo_ia.usecases.interfaces.CrudVoluntario;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,7 +27,7 @@ public class VoluntarioControllerImpl implements VoluntarioController {
     @ResponseStatus(HttpStatus.CREATED)
     @Operation(summary = "Criar um novo voluntário")
     @Override
-    public ResponseEntity<VoluntarioFullResponseDto> create(VoluntarioCreateRequestDto voluntarioCreateRequestDto) {
+    public ResponseEntity<VoluntarioFullResponseDto> create(@RequestBody @Valid VoluntarioCreateRequestDto voluntarioCreateRequestDto) {
         return ResponseEntity.ok(crudVoluntario.create(voluntarioCreateRequestDto));
     }
 
@@ -34,7 +35,7 @@ public class VoluntarioControllerImpl implements VoluntarioController {
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Edita um voluntário")
     @Override
-    public ResponseEntity<VoluntarioFullResponseDto> update(Integer id, VoluntarioUpdateRequestDto voluntarioUpdateRequestDto) {
+    public ResponseEntity<VoluntarioFullResponseDto> update(@PathVariable String id, @RequestBody @Valid VoluntarioUpdateRequestDto voluntarioUpdateRequestDto) {
         return ResponseEntity.ok(crudVoluntario.update(id, voluntarioUpdateRequestDto));
     }
 
@@ -42,7 +43,7 @@ public class VoluntarioControllerImpl implements VoluntarioController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @Operation(summary = "Deleta um voluntário")
     @Override
-    public ResponseEntity<VoluntarioFullResponseDto> delete(Integer id) {
+    public ResponseEntity<VoluntarioFullResponseDto> delete(@PathVariable String id) {
         crudVoluntario.delete(id);
         return ResponseEntity.noContent().build();
     }
@@ -51,7 +52,7 @@ public class VoluntarioControllerImpl implements VoluntarioController {
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Busca um voluntário")
     @Override
-    public ResponseEntity<VoluntarioFullResponseDto> findById(Integer id) {
+    public ResponseEntity<VoluntarioFullResponseDto> findById(@PathVariable String id) {
         return ResponseEntity.ok(crudVoluntario.findById(id));
     }
 
@@ -67,7 +68,7 @@ public class VoluntarioControllerImpl implements VoluntarioController {
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Adicionar ou remove habilidade a um voluntário")
     @Override
-    public ResponseEntity<VoluntarioFullResponseDto> manageHabilidade(Integer voluntarioId, Integer habilidadeId, ManageAction action) {
+    public ResponseEntity<VoluntarioFullResponseDto> manageHabilidade(@RequestParam String voluntarioId, @RequestParam String habilidadeId, @RequestParam ManageAction action) {
         return ResponseEntity.ok(crudVoluntario.manageHabilidade(voluntarioId, habilidadeId, action));
     }
 }

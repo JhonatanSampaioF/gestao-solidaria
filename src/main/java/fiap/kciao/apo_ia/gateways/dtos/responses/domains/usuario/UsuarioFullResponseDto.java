@@ -8,7 +8,7 @@ import lombok.Data;
 @Builder
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class UsuarioFullResponseDto {
-    private Integer id;
+    private String id;
     private String nome;
     private String email;
 }

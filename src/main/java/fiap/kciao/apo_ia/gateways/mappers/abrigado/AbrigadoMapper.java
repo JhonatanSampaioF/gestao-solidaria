@@ -29,10 +29,8 @@ public class AbrigadoMapper {
                 .peso(abrigado.getPeso())
                 .cpf(abrigado.getCpf())
                 .voluntario(abrigado.getVoluntario())
-                .localId(abrigado.getLocal() != null
-                        ? abrigado.getLocal().getId()
-                        : null)
-                .doencasId(abrigado.getDoencas().stream().map(Doenca::getId).toList())
+                .localId(abrigado.getLocalId())
+                .doencaIds(abrigado.getDoencaIds())
                 .build();
     }
 

@@ -34,7 +34,7 @@ public class HabilidadeControllerImpl implements HabilidadeController {
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Edita uma habilidade")
     @Override
-    public ResponseEntity<HabilidadeFullResponseDto> update(@PathVariable Integer id, @RequestBody @Valid HabilidadeUpdateRequestDto habilidadeUpdateRequestDto) {
+    public ResponseEntity<HabilidadeFullResponseDto> update(@PathVariable String id, @RequestBody @Valid HabilidadeUpdateRequestDto habilidadeUpdateRequestDto) {
         return ResponseEntity.ok(crudHabilidade.update(id, habilidadeUpdateRequestDto));
     }
 
@@ -42,7 +42,7 @@ public class HabilidadeControllerImpl implements HabilidadeController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @Operation(summary = "Deleta uma habilidade")
     @Override
-    public ResponseEntity<Void> delete(@PathVariable Integer id) {
+    public ResponseEntity<Void> delete(@PathVariable String id) {
         crudHabilidade.delete(id);
         return ResponseEntity.noContent().build();
     }
@@ -51,7 +51,7 @@ public class HabilidadeControllerImpl implements HabilidadeController {
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Busca uma habilidade")
     @Override
-    public ResponseEntity<HabilidadeFullResponseDto> findById(@PathVariable Integer id) {
+    public ResponseEntity<HabilidadeFullResponseDto> findById(@PathVariable String id) {
         return ResponseEntity.ok(crudHabilidade.findById(id));
     }
 

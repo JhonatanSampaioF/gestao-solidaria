@@ -9,8 +9,8 @@ import java.util.List;
 
 public interface UsuarioController {
     ResponseEntity<UsuarioFullResponseDto> create(UsuarioCreateRequestDto usuarioCreateRequestDto);
-    ResponseEntity<UsuarioFullResponseDto> update(Integer id, UsuarioUpdateRequestDto usuarioUpdateRequestDto);
-    ResponseEntity<UsuarioFullResponseDto> delete(Integer id);
-    ResponseEntity<UsuarioFullResponseDto> findById(Integer id);
+    ResponseEntity<UsuarioFullResponseDto> update(String id, UsuarioUpdateRequestDto usuarioUpdateRequestDto);
+    ResponseEntity<UsuarioFullResponseDto> delete(String id);
+    ResponseEntity<UsuarioFullResponseDto> findById(String id);
     ResponseEntity<List<UsuarioFullResponseDto>> findAll();
 }

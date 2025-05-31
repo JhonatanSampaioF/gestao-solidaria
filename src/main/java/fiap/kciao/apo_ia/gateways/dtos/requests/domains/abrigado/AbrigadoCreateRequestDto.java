@@ -23,5 +23,5 @@ public class AbrigadoCreateRequestDto {
     @NotEmpty
     private String ferimento;
     @NotNull
-    private Integer localId;
+    private String localId;
 }

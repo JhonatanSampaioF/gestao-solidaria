@@ -24,7 +24,7 @@ public class CrudDoencaImpl implements CrudDoenca {
     }
 
     @Override
-    public DoencaFullResponseDto update(Integer id, DoencaUpdateRequestDto doencaUpdateRequestDto) {
+    public DoencaFullResponseDto update(String id, DoencaUpdateRequestDto doencaUpdateRequestDto) {
         Doenca doenca = doencaQueryService.findByIdOrThrow(id);
 
         doenca.setNome(doencaUpdateRequestDto.getNome());
@@ -34,7 +34,7 @@ public class CrudDoencaImpl implements CrudDoenca {
     }
 
     @Override
-    public DoencaFullResponseDto findById(Integer id) {
+    public DoencaFullResponseDto findById(String id) {
         return toFullResponseDto(doencaQueryService.findByIdOrThrow(id));
     }
 
@@ -44,7 +44,7 @@ public class CrudDoencaImpl implements CrudDoenca {
     }
 
     @Override
-    public void delete(Integer id) {
+    public void delete(String id) {
         doencaQueryService.deleteById(id);
     }
 }

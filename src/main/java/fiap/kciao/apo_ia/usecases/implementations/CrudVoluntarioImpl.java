@@ -31,13 +31,13 @@ public class CrudVoluntarioImpl implements CrudVoluntario {
 
         Abrigado abrigado = abrigadoQueryService.findByIdOrThrow(voluntarioCreateRequestDto.getAbrigadoId());
 
-        voluntario.setAbrigado(abrigado);
+        voluntario.setAbrigadoId(abrigado.getId());
 
         return toFullResponseDto(voluntarioQueryService.save(voluntario));
     }
 
     @Override
-    public VoluntarioFullResponseDto update(Integer id, VoluntarioUpdateRequestDto voluntarioUpdateRequestDto) {
+    public VoluntarioFullResponseDto update(String id, VoluntarioUpdateRequestDto voluntarioUpdateRequestDto) {
         Voluntario voluntario = voluntarioQueryService.findByIdOrThrow(id);
 
         voluntario.setCapacidade_motora(voluntarioUpdateRequestDto.getCapacidade_motora());
@@ -46,7 +46,7 @@ public class CrudVoluntarioImpl implements CrudVoluntario {
     }
 
     @Override
-    public VoluntarioFullResponseDto findById(Integer id) {
+    public VoluntarioFullResponseDto findById(String id) {
         return toFullResponseDto(voluntarioQueryService.findByIdOrThrow(id));
     }
 
@@ -56,19 +56,19 @@ public class CrudVoluntarioImpl implements CrudVoluntario {
     }
 
     @Override
-    public void delete(Integer id) {
+    public void delete(String id) {
         voluntarioQueryService.deleteById(id);
     }
 
     @Override
-    public VoluntarioFullResponseDto manageHabilidade(Integer voluntarioId, Integer habilidadeId, ManageAction action) {
+    public VoluntarioFullResponseDto manageHabilidade(String voluntarioId, String habilidadeId, ManageAction action) {
         Voluntario voluntario = voluntarioQueryService.findByIdOrThrow(voluntarioId);
 
         Habilidade habilidade = habilidadeQueryService.findByIdOrThrow(habilidadeId);
 
         switch (action) {
-            case ADD -> voluntario.getHabilidades().add(habilidade);
-            case REMOVE -> voluntario.getHabilidades().remove(habilidade);
+            case ADD -> voluntario.getHabilidadeIds().add(habilidade.getId());
+            case REMOVE -> voluntario.getHabilidadeIds().remove(habilidade.getId());
         }
 
         return toFullResponseDto(voluntarioQueryService.save(voluntario));

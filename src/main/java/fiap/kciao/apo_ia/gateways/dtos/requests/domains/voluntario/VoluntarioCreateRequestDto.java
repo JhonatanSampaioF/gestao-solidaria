@@ -9,5 +9,5 @@ public class VoluntarioCreateRequestDto {
     @NotEmpty
     private String capacidade_motora;
     @NotNull
-    private Integer abrigadoId;
+    private String abrigadoId;
 }

@@ -34,7 +34,7 @@ public class LocalControllerImpl implements LocalController {
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Edita um local")
     @Override
-    public ResponseEntity<LocalFullResponseDto> update(@PathVariable Integer id, @RequestBody @Valid LocalUpdateRequestDto localUpdateRequestDto) {
+    public ResponseEntity<LocalFullResponseDto> update(@PathVariable String id, @RequestBody @Valid LocalUpdateRequestDto localUpdateRequestDto) {
         return ResponseEntity.ok(crudLocal.update(id, localUpdateRequestDto));
     }
 
@@ -42,7 +42,7 @@ public class LocalControllerImpl implements LocalController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @Operation(summary = "Deleta um local")
     @Override
-    public ResponseEntity<LocalFullResponseDto> delete(@PathVariable Integer id) {
+    public ResponseEntity<LocalFullResponseDto> delete(@PathVariable String id) {
         crudLocal.delete(id);
         return ResponseEntity.noContent().build();
     }
@@ -51,7 +51,7 @@ public class LocalControllerImpl implements LocalController {
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Busca um local")
     @Override
-    public ResponseEntity<LocalFullResponseDto> findById(@PathVariable Integer id) {
+    public ResponseEntity<LocalFullResponseDto> findById(@PathVariable String id) {
         return ResponseEntity.ok(crudLocal.findById(id));
     }
 

@@ -10,8 +10,8 @@ import java.util.List;
 @Builder
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class DoencaFullResponseDto {
-    private Integer id;
+    private String id;
     private String nome;
     private String gravidade;
-    private List<Integer> abrigadosId;
+    private List<String> abrigadoIds;
 }

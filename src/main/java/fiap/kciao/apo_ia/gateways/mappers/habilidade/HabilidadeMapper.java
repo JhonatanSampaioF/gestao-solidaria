@@ -21,7 +21,6 @@ public class HabilidadeMapper {
                 .id(habilidade.getId())
                 .nome(habilidade.getNome())
                 .prioridade(habilidade.getPrioridade())
-                .voluntariosId(habilidade.getVoluntarios().stream().map(Voluntario::getId).toList())
                 .build();
     }
 

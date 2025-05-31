@@ -19,10 +19,8 @@ public class VoluntarioMapper {
                 .id(voluntario.getId())
                 .alocacao(voluntario.getAlocacao())
                 .capacidade_motora(voluntario.getCapacidade_motora())
-                .habilidadesId(voluntario.getHabilidades().stream().map(Habilidade::getId).toList())
-                .abrigadoId(voluntario.getAbrigado() != null
-                        ? voluntario.getAbrigado().getId()
-                        : null)
+                .habilidadeIds(voluntario.getHabilidadeIds())
+                .abrigadoId(voluntario.getAbrigadoId())
                 .build();
     }
 

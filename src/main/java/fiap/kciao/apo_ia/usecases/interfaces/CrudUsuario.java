@@ -8,8 +8,8 @@ import java.util.List;
 
 public interface CrudUsuario {
     public UsuarioFullResponseDto create(UsuarioCreateRequestDto usuarioCreateRequestDto);
-    public UsuarioFullResponseDto update(Integer id, UsuarioUpdateRequestDto usuarioUpdateRequestDto);
-    public UsuarioFullResponseDto findById(Integer id);
+    public UsuarioFullResponseDto update(String id, UsuarioUpdateRequestDto usuarioUpdateRequestDto);
+    public UsuarioFullResponseDto findById(String id);
     public List<UsuarioFullResponseDto> findAll();
-    public void delete(Integer id);
+    public void delete(String id);
 }

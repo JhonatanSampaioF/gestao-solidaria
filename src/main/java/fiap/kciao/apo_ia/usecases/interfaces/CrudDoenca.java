@@ -8,8 +8,8 @@ import java.util.List;
 
 public interface CrudDoenca {
     public DoencaFullResponseDto create(DoencaCreateRequestDto doencaCreateRequestDto);
-    public DoencaFullResponseDto update(Integer id, DoencaUpdateRequestDto doencaUpdateRequestDto);
-    public DoencaFullResponseDto findById(Integer id);
+    public DoencaFullResponseDto update(String id, DoencaUpdateRequestDto doencaUpdateRequestDto);
+    public DoencaFullResponseDto findById(String id);
     public List<DoencaFullResponseDto> findAll();
-    public void delete(Integer id);
+    public void delete(String id);
 }

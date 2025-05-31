@@ -28,7 +28,7 @@ public class CrudUsuarioImpl implements CrudUsuario {
     }
 
     @Override
-    public UsuarioFullResponseDto update(Integer id, UsuarioUpdateRequestDto usuarioUpdateRequestDto) {
+    public UsuarioFullResponseDto update(String id, UsuarioUpdateRequestDto usuarioUpdateRequestDto) {
         Usuario usuario = usuarioQueryService.findByIdOrThrow(id);
 
         usuario.setNome(usuarioUpdateRequestDto.getName());
@@ -39,7 +39,7 @@ public class CrudUsuarioImpl implements CrudUsuario {
     }
 
     @Override
-    public UsuarioFullResponseDto findById(Integer id) {
+    public UsuarioFullResponseDto findById(String id) {
         return toFullResponseDto(usuarioQueryService.findByIdOrThrow(id));
     }
 
@@ -49,7 +49,7 @@ public class CrudUsuarioImpl implements CrudUsuario {
     }
 
     @Override
-    public void delete(Integer id) {
+    public void delete(String id) {
         usuarioQueryService.deleteById(id);
     }
 }

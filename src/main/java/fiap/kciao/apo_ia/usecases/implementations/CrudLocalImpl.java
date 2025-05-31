@@ -24,7 +24,7 @@ public class CrudLocalImpl implements CrudLocal {
     }
 
     @Override
-    public LocalFullResponseDto update(Integer id, LocalUpdateRequestDto localUpdateRequestDto) {
+    public LocalFullResponseDto update(String id, LocalUpdateRequestDto localUpdateRequestDto) {
         Local local = localQueryService.findByIdOrThrow(id);
 
         local.setNome(localUpdateRequestDto.getNome());
@@ -41,12 +41,12 @@ public class CrudLocalImpl implements CrudLocal {
     }
 
     @Override
-    public LocalFullResponseDto findById(Integer id) {
+    public LocalFullResponseDto findById(String id) {
         return toFullResponseDto(localQueryService.findByIdOrThrow(id));
     }
 
     @Override
-    public void delete(Integer id) {
+    public void delete(String id) {
         localQueryService.deleteById(id);
     }
 }

@@ -3,7 +3,9 @@ package fiap.kciao.apo_ia.usecases.services.query;
 import fiap.kciao.apo_ia.domains.Usuario;
 import fiap.kciao.apo_ia.gateways.repositories.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -17,16 +19,16 @@ public class UsuarioQueryService {
         return usuarioRepository.save(usuario);
     }
 
-    public Usuario findByIdOrThrow(Integer id) {
+    public Usuario findByIdOrThrow(String id) {
         return usuarioRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Usuario not found"));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuário não encontrado"));
     }
 
     public List<Usuario> findAll() {
         return usuarioRepository.findAll();
     }
 
-    public void deleteById(Integer id) {
+    public void deleteById(String id) {
         usuarioRepository.deleteById(id);
     }
 }

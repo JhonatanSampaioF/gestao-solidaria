@@ -35,7 +35,7 @@ public class AbrigadoControllerImpl implements AbrigadoController {
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Edita um abrigado")
     @Override
-    public ResponseEntity<AbrigadoFullResponseDto> update(@PathVariable Integer id, @RequestBody @Valid AbrigadoUpdateRequestDto abrigadoUpdateRequestDto) {
+    public ResponseEntity<AbrigadoFullResponseDto> update(@PathVariable String id, @RequestBody @Valid AbrigadoUpdateRequestDto abrigadoUpdateRequestDto) {
         return ResponseEntity.ok(crudAbrigado.update(id, abrigadoUpdateRequestDto));
     }
 
@@ -43,7 +43,7 @@ public class AbrigadoControllerImpl implements AbrigadoController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @Operation(summary = "Deleta um abrigado")
     @Override
-    public ResponseEntity<AbrigadoFullResponseDto> delete(@PathVariable Integer id) {
+    public ResponseEntity<AbrigadoFullResponseDto> delete(@PathVariable String id) {
         crudAbrigado.delete(id);
         return ResponseEntity.noContent().build();
     }
@@ -52,7 +52,7 @@ public class AbrigadoControllerImpl implements AbrigadoController {
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Busca um abrigado")
     @Override
-    public ResponseEntity<AbrigadoFullResponseDto> findById(@PathVariable Integer id) {
+    public ResponseEntity<AbrigadoFullResponseDto> findById(@PathVariable String id) {
         return ResponseEntity.ok(crudAbrigado.findById(id));
     }
 
@@ -68,7 +68,7 @@ public class AbrigadoControllerImpl implements AbrigadoController {
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Adicionar ou remove doença a um abrigado")
     @Override
-    public ResponseEntity<AbrigadoFullResponseDto> manageDoenca(@RequestParam Integer doencaId, @RequestParam Integer id, @RequestParam ManageAction action) {
+    public ResponseEntity<AbrigadoFullResponseDto> manageDoenca(@RequestParam String doencaId, @RequestParam String id, @RequestParam ManageAction action) {
         return ResponseEntity.ok(crudAbrigado.manageDoenca(doencaId, id, action));
     }
 }

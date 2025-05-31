@@ -2,9 +2,10 @@ package fiap.kciao.apo_ia.usecases.services.query;
 
 import fiap.kciao.apo_ia.domains.Doenca;
 import fiap.kciao.apo_ia.gateways.repositories.DoencaRepository;
-import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -18,16 +19,16 @@ public class DoencaQueryService {
         return doencaRepository.save(doenca);
     }
 
-    public Doenca findByIdOrThrow(Integer id) {
+    public Doenca findByIdOrThrow(String id) {
         return doencaRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Doenca not found with id"));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Doença não encontrada"));
     }
 
     public List<Doenca> findAll() {
         return doencaRepository.findAll();
     }
 
-    public void deleteById(Integer id) {
+    public void deleteById(String id) {
         doencaRepository.deleteById(id);
     }
 }

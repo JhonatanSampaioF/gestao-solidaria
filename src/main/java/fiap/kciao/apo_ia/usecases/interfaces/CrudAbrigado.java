@@ -9,9 +9,9 @@ import java.util.List;
 
 public interface CrudAbrigado {
     public AbrigadoFullResponseDto create(AbrigadoCreateRequestDto abrigadoCreateRequestDto);
-    public AbrigadoFullResponseDto update(Integer id, AbrigadoUpdateRequestDto abrigadoUpdateRequestDto);
-    public AbrigadoFullResponseDto findById(Integer id);
+    public AbrigadoFullResponseDto update(String id, AbrigadoUpdateRequestDto abrigadoUpdateRequestDto);
+    public AbrigadoFullResponseDto findById(String id);
     public List<AbrigadoFullResponseDto> findAll();
-    public void delete(Integer id);
-    public AbrigadoFullResponseDto manageDoenca(Integer doencaId, Integer abrigadoId, ManageAction action);
+    public void delete(String id);
+    public AbrigadoFullResponseDto manageDoenca(String doencaId, String abrigadoId, ManageAction action);
 }

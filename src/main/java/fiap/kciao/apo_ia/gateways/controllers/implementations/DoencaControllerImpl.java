@@ -34,7 +34,7 @@ public class DoencaControllerImpl implements DoencaController {
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Edita uma doença")
     @Override
-    public ResponseEntity<DoencaFullResponseDto> update(@PathVariable Integer id, @RequestBody @Valid DoencaUpdateRequestDto doencaUpdateRequestDto) {
+    public ResponseEntity<DoencaFullResponseDto> update(@PathVariable String id, @RequestBody @Valid DoencaUpdateRequestDto doencaUpdateRequestDto) {
         return ResponseEntity.ok(crudDoenca.update(id, doencaUpdateRequestDto));
     }
 
@@ -42,7 +42,7 @@ public class DoencaControllerImpl implements DoencaController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @Operation(summary = "Deleta uma doença")
     @Override
-    public ResponseEntity<DoencaFullResponseDto> delete(@PathVariable Integer id) {
+    public ResponseEntity<DoencaFullResponseDto> delete(@PathVariable String id) {
         crudDoenca.delete(id);
         return ResponseEntity.noContent().build();
     }
@@ -51,7 +51,7 @@ public class DoencaControllerImpl implements DoencaController {
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Busca uma doença")
     @Override
-    public ResponseEntity<DoencaFullResponseDto> findById(@PathVariable Integer id) {
+    public ResponseEntity<DoencaFullResponseDto> findById(@PathVariable String id) {
         return ResponseEntity.ok(crudDoenca.findById(id));
     }
 

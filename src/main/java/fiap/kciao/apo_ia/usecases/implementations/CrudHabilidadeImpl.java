@@ -24,7 +24,7 @@ public class CrudHabilidadeImpl implements CrudHabilidade {
     }
 
     @Override
-    public HabilidadeFullResponseDto update(Integer id, HabilidadeUpdateRequestDto habilidadeUpdateRequestDto) {
+    public HabilidadeFullResponseDto update(String id, HabilidadeUpdateRequestDto habilidadeUpdateRequestDto) {
         Habilidade habilidade = habilidadeQueryService.findByIdOrThrow(id);
 
         habilidade.setNome(habilidadeUpdateRequestDto.getNome());
@@ -34,7 +34,7 @@ public class CrudHabilidadeImpl implements CrudHabilidade {
     }
 
     @Override
-    public HabilidadeFullResponseDto findById(Integer id) {
+    public HabilidadeFullResponseDto findById(String id) {
         return toFullResponseDto(habilidadeQueryService.findByIdOrThrow(id));
     }
 
@@ -44,7 +44,7 @@ public class CrudHabilidadeImpl implements CrudHabilidade {
     }
 
     @Override
-    public void delete(Integer id) {
+    public void delete(String id) {
         habilidadeQueryService.deleteById(id);
     }
 }

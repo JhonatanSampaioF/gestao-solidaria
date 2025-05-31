@@ -8,8 +8,8 @@ import java.util.List;
 
 public interface CrudHabilidade {
     public HabilidadeFullResponseDto create(HabilidadeCreateRequestDto habilidadeCreateRequestDto);
-    public HabilidadeFullResponseDto update(Integer id, HabilidadeUpdateRequestDto habilidadeUpdateRequestDto);
-    public HabilidadeFullResponseDto findById(Integer id);
+    public HabilidadeFullResponseDto update(String id, HabilidadeUpdateRequestDto habilidadeUpdateRequestDto);
+    public HabilidadeFullResponseDto findById(String id);
     public List<HabilidadeFullResponseDto> findAll();
-    public void delete(Integer id);
+    public void delete(String id);
 }
