@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>fiap.kciao</groupId>
-	<artifactId>gestao-solidaria</artifactId>
+	<artifactId>apo-ia</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Gestao SolidarIA</name>
+	<name>Apo.IA</name>
 	<description>Sistema de apoio a centros humanitários para gestão de acolhidos e voluntários</description>
 	<url/>
 	<licenses>
