@@ -10,4 +10,7 @@ public class GestaoSolidarIaApplication {
 		SpringApplication.run(GestaoSolidarIaApplication.class, args);
 	}
 
+	// TODO criar usecase
+	// TODO criar controller
+	// TODO alterar para mongo
 }

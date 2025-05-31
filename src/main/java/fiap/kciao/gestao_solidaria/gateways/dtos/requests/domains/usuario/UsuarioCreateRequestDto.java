@@ -10,5 +10,5 @@ public class UsuarioCreateRequestDto {
     @NotEmpty
     private String email;
     @NotEmpty
-    private String password;
+    private String senha;
 }

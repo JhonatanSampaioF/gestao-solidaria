@@ -10,7 +10,6 @@ import java.util.List;
 public class VoluntarioMapper {
     public static Voluntario toEntityCreate(VoluntarioCreateRequestDto voluntarioCreateRequestDto) {
         return Voluntario.builder()
-                .alocacao(voluntarioCreateRequestDto.getAlocacao())
                 .capacidade_motora(voluntarioCreateRequestDto.getCapacidade_motora())
                 .build();
     }

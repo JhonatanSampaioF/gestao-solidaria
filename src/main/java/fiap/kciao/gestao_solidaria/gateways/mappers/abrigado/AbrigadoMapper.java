@@ -1,6 +1,7 @@
 package fiap.kciao.gestao_solidaria.gateways.mappers.abrigado;
 
 import fiap.kciao.gestao_solidaria.domains.Abrigado;
+import fiap.kciao.gestao_solidaria.domains.Doenca;
 import fiap.kciao.gestao_solidaria.gateways.dtos.requests.domains.abrigado.AbrigadoCreateRequestDto;
 import fiap.kciao.gestao_solidaria.gateways.dtos.responses.domains.abrigado.AbrigadoFullResponseDto;
 
@@ -31,6 +32,7 @@ public class AbrigadoMapper {
                 .localId(abrigado.getLocal() != null
                         ? abrigado.getLocal().getId()
                         : null)
+                .doencasId(abrigado.getDoencas().stream().map(Doenca::getId).toList())
                 .build();
     }
 
