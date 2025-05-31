@@ -1,7 +1,7 @@
 spring:
   application:
-    name: Gestao SolidarIA
+    name: Apo.IA
   data:
     mongodb:
       uri: mongodb://localhost:27017
-      database: gestao_solidaria
+      database: apo_ia
