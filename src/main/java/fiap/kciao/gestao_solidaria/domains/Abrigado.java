@@ -1,12 +1,11 @@
 package fiap.kciao.gestao_solidaria.domains;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
@@ -14,11 +13,10 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
+@Document(collection = "abrigados")
 public class Abrigado {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Integer id;
+    private String id;
     private String nome;
     private Integer idade;
     private Double altura;
@@ -27,15 +25,6 @@ public class Abrigado {
     private Boolean voluntario;
     private String ferimento;
 
-    @ManyToOne
-    private Local local;
-
-    @ManyToMany
-    @JoinTable(
-            name = "abrigado_doenca",
-            joinColumns = @JoinColumn(name = "abrigado_id"),
-            inverseJoinColumns = @JoinColumn(name = "doenca_id")
-    )
-    @JsonManagedReference
-    private List<Doenca> doencas;
+    private String localId;
+    private List<String> doencaIds;
 }
